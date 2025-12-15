@@ -5,6 +5,7 @@ import {
   Container,
   Head,
   Heading,
+  Hr,
   Html,
   Img,
   Link,
@@ -19,14 +20,14 @@ import TailwindWrapper from "@/tailwind-wrapper";
 //   loginCode?: string;
 // }
 
-const baseUrl = process.env.VERCEL_URL
-  ? `https://${process.env.VERCEL_URL}`
-  : "";
+// cons= process.env.VERCEL_URL
+//   ? `https://${process.env.VERCEL_URL}`
+//   : "";
 
 // export const AirXEmail = ({ loginCode }: AirXEmailProps) => {
 export const AirXEmail = () => {
   return (
-    <Html>
+    <Html style={html}>
       <Head />
       <Preview>Log in with this magic link</Preview>
 
@@ -35,92 +36,116 @@ export const AirXEmail = () => {
         <Body style={main}>
           <Container style={container}>
             <Img
-              src={`${baseUrl}/static/airx.png`}
+              src={`/static/airx.png`}
               alt="Notion's Logo"
               className="object-contain h-10"
             />
 
-            <Heading style={h1}>Шинэ захиалга үүслээ</Heading>
-            <Row className="">
-              <Heading style={h1} className="flex gap-1 text-xs">
-                Та <span className="font-bold">FCMW2A</span>
+            <Heading style={h1}>⏱️ Шинэ захиалга үүслээ</Heading>
+            <Row>
+              <Text style={h3}>
+                Та <span className="text-black mx-1">FCMW2A</span>
                 <span className="text-nowrap">дугаартай захиалгаа</span>
-                <span className="font-bold">2025-12-15 10:14:00</span>
+                <span className="text-black mx-1">2025-12-15 10:14:00</span>
                 цагаас өмнө баталгаажуулаарай.
-              </Heading>
+              </Text>
             </Row>
 
-            <Section className="border-2 border-accent p-6 rounded-md">
+            <Section className="border-2 border-accent p-6 rounded-xl w-full bg-white">
               <Row>
-                <Text style={span}>Төлбөр төлөх сүүлийн хугацаа</Text>
+                <Text style={{ ...h3, margin: 0, marginBottom: 16 }}>
+                  Төлбөр төлөх сүүлийн хугацаа
+                </Text>
                 <Row>
-                  <Text className="text-blue font-bold flex gap-2 my-0">
-                    <span>12 сар 15</span>
-                    <span className="text-black">Даваа гариг</span>
-                    <span>10:14</span>
+                  <Text
+                    style={{
+                      ...h2,
+                      ...blue_text,
+                      display: "flex",
+                      margin: "0 0",
+                      fontWeight: "bold",
+                      textWrap: "nowrap",
+                    }}
+                  >
+                    12 сар 15
+                    <span style={{ margin: "0 4px", color: "black" }}>
+                      Даваа гариг
+                    </span>
+                    10:14
                   </Text>
                 </Row>
-              </Row>
-              <Row className="h-[0.5px] w-full bg-gray-200 my-3">{""}</Row>
-              <Row>
-                <Column>
-                  <Text>Захиалгын дугаар</Text>
-                  <Text className="font-bold">FCMW2A</Text>
-                </Column>
+                <Hr style={{ margin: "32px 0" }} />
+                <Row className="w-full">
+                  <Column style={blue_text} className="text-left w-1/2">
+                    2 талын нислэг
+                  </Column>
+                  <Column style={blue_text} className="text-right w-1/2">
+                    1 зорчигч
+                  </Column>
+                </Row>
+                <Row>
+                  <div className="flex gap-2 items-center my-5">
+                    <Img
+                      src={`/static/arrow.png`}
+                      className="h-6 object-contain w-fit"
+                    />
+
+                    <Heading className="text-2xl my-0">Singapore</Heading>
+                  </div>
+                </Row>
+
+                <Row>
+                  <Row className="w-full">
+                    <Column style={blue_text} className="text-left w-1/2 my-0">
+                      <Text
+                        style={{
+                          ...h3,
+                          display: "flex",
+                          margin: "0 0",
+                        }}
+                      >
+                        <span style={{ ...blue_text, marginRight: "24px" }}>
+                          ULN
+                        </span>
+                        <span className="text-gray-500 font-semibold">
+                          Ulaanbaatar
+                        </span>
+                      </Text>
+                    </Column>
+                    <Column style={span} className="text-right w-1/2">
+                      2025-12-19
+                    </Column>
+                  </Row>
+                  <Row className="w-full">
+                    <Column style={blue_text} className="text-left w-1/2 my-0">
+                      <Text
+                        style={{
+                          ...h3,
+                          display: "flex",
+                          margin: "0 0",
+                        }}
+                      >
+                        <span style={{ ...blue_text, marginRight: "24px" }}>
+                          SIN
+                        </span>
+                        <span className="text-gray-500 font-semibold">
+                          Singapore
+                        </span>
+                      </Text>
+                    </Column>
+                    <Column style={span} className="text-right w-1/2">
+                      2025-12-21
+                    </Column>
+                  </Row>
+                </Row>
               </Row>
             </Section>
-            <Button href="https://example.com" style={link}>
-              test button
+            <Button
+              style={button}
+              href="https://react.email/docs/getting-started/manual-setup"
+            >
+              Төлбөр төлөх
             </Button>
-            <Heading className="text-nus">tailwind headin</Heading>
-            <Link
-              href="https://notion.so"
-              target="_blank"
-              style={{
-                ...link,
-                display: "block",
-                marginBottom: "16px",
-              }}
-            >
-              Click here to log in with this magic link
-            </Link>
-            <Text style={{ ...text, marginBottom: "14px" }}>
-              Or, copy and paste this temporary login code:
-            </Text>
-            <Text
-              style={{
-                ...text,
-                color: "#ababab",
-                marginTop: "14px",
-                marginBottom: "16px",
-              }}
-            >
-              If you didn&apos;t try to login, you can safely ignore this email.
-            </Text>
-            <Text
-              style={{
-                ...text,
-                color: "#ababab",
-                marginTop: "12px",
-                marginBottom: "38px",
-              }}
-            >
-              Hint: You can set a permanent password in Settings & members → My
-              account.
-            </Text>
-
-            <Text style={footer}>
-              <Link
-                href="https://notion.so"
-                target="_blank"
-                style={{ ...link, color: "#898989" }}
-              >
-                Notion.so
-              </Link>
-              , the all-in-one-workspace
-              <br />
-              for your notes, tasks, wikis, and databases.
-            </Text>
           </Container>
         </Body>
       </TailwindWrapper>
@@ -134,13 +159,19 @@ export const AirXEmail = () => {
 
 export default AirXEmail;
 
+const html = {
+  margin: 0,
+  padding: 0,
+};
+
 const main = {
-  backgroundColor: "#ffffff",
+  fontFamily:
+    "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif",
+  margin: "0 0",
 };
 
 const container = {
-  paddingLeft: "12px",
-  paddingRight: "12px",
+  padding: "12px",
   margin: "0 auto",
   maxWidth: "37.5rem",
 };
@@ -151,8 +182,23 @@ const h1 = {
     "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif",
   fontSize: "24px",
   fontWeight: "bold",
-  margin: "40px 0",
   padding: "0",
+};
+const h2 = {
+  color: "#333",
+  fontFamily:
+    "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif",
+  fontSize: "1.375rem",
+  fontWeight: "bold",
+  padding: "0",
+};
+const h3 = {
+  fontSize: "18px",
+  fontFamily:
+    "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif",
+  lineHeight: "24px",
+  color: "#8c97aa",
+  fontWeight: "regular",
 };
 
 const link = {
@@ -161,6 +207,19 @@ const link = {
     "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif",
   fontSize: "14px",
   textDecoration: "underline",
+};
+
+const blue_text = {
+  color: "#0052bd",
+};
+
+const button = {
+  backgroundColor: "#5b38d7",
+  color: "#ffffff",
+  fontSize: "18px",
+  padding: "16px 24px",
+  borderRadius: "10px",
+  margin: "40px 0",
 };
 
 const text = {
@@ -184,16 +243,6 @@ const footer = {
   lineHeight: "22px",
   marginTop: "12px",
   marginBottom: "24px",
-};
-
-const code = {
-  display: "inline-block",
-  padding: "16px 4.5%",
-  width: "90.5%",
-  backgroundColor: "#f4f4f4",
-  borderRadius: "5px",
-  border: "1px solid #eee",
-  color: "#333",
 };
 
 // import * as React from "react";
