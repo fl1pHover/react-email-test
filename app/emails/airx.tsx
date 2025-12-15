@@ -1,0 +1,212 @@
+import {
+  Body,
+  Button,
+  Column,
+  Container,
+  Head,
+  Heading,
+  Html,
+  Img,
+  Link,
+  Preview,
+  Row,
+  Section,
+  Text,
+} from "@react-email/components";
+import TailwindWrapper from "@/tailwind-wrapper";
+
+// interface AirXEmailProps {
+//   loginCode?: string;
+// }
+
+const baseUrl = process.env.VERCEL_URL
+  ? `https://${process.env.VERCEL_URL}`
+  : "";
+
+// export const AirXEmail = ({ loginCode }: AirXEmailProps) => {
+export const AirXEmail = () => {
+  return (
+    <Html>
+      <Head />
+      <Preview>Log in with this magic link</Preview>
+
+      {/* ATTENTION: Tailwind config  */}
+      <TailwindWrapper>
+        <Body style={main}>
+          <Container style={container}>
+            <Img
+              src={`${baseUrl}/static/airx.png`}
+              alt="Notion's Logo"
+              className="object-contain h-10"
+            />
+
+            <Heading style={h1}>Шинэ захиалга үүслээ</Heading>
+            <Row className="">
+              <Heading style={h1} className="flex gap-1 text-xs">
+                Та <span className="font-bold">FCMW2A</span>
+                <span className="text-nowrap">дугаартай захиалгаа</span>
+                <span className="font-bold">2025-12-15 10:14:00</span>
+                цагаас өмнө баталгаажуулаарай.
+              </Heading>
+            </Row>
+
+            <Section className="border-2 border-accent p-6 rounded-md">
+              <Row>
+                <Text style={span}>Төлбөр төлөх сүүлийн хугацаа</Text>
+                <Row>
+                  <Text className="text-blue font-bold flex gap-2 my-0">
+                    <span>12 сар 15</span>
+                    <span className="text-black">Даваа гариг</span>
+                    <span>10:14</span>
+                  </Text>
+                </Row>
+              </Row>
+              <Row className="h-[0.5px] w-full bg-gray-200 my-3">{""}</Row>
+              <Row>
+                <Column>
+                  <Text>Захиалгын дугаар</Text>
+                  <Text className="font-bold">FCMW2A</Text>
+                </Column>
+              </Row>
+            </Section>
+            <Button href="https://example.com" style={link}>
+              test button
+            </Button>
+            <Heading className="text-nus">tailwind headin</Heading>
+            <Link
+              href="https://notion.so"
+              target="_blank"
+              style={{
+                ...link,
+                display: "block",
+                marginBottom: "16px",
+              }}
+            >
+              Click here to log in with this magic link
+            </Link>
+            <Text style={{ ...text, marginBottom: "14px" }}>
+              Or, copy and paste this temporary login code:
+            </Text>
+            <Text
+              style={{
+                ...text,
+                color: "#ababab",
+                marginTop: "14px",
+                marginBottom: "16px",
+              }}
+            >
+              If you didn&apos;t try to login, you can safely ignore this email.
+            </Text>
+            <Text
+              style={{
+                ...text,
+                color: "#ababab",
+                marginTop: "12px",
+                marginBottom: "38px",
+              }}
+            >
+              Hint: You can set a permanent password in Settings & members → My
+              account.
+            </Text>
+
+            <Text style={footer}>
+              <Link
+                href="https://notion.so"
+                target="_blank"
+                style={{ ...link, color: "#898989" }}
+              >
+                Notion.so
+              </Link>
+              , the all-in-one-workspace
+              <br />
+              for your notes, tasks, wikis, and databases.
+            </Text>
+          </Container>
+        </Body>
+      </TailwindWrapper>
+    </Html>
+  );
+};
+
+// AirXEmail.PreviewProps = {
+//   loginCode: "sparo-ndigo-amurt-secan",
+// } as AirXEmailProps;
+
+export default AirXEmail;
+
+const main = {
+  backgroundColor: "#ffffff",
+};
+
+const container = {
+  paddingLeft: "12px",
+  paddingRight: "12px",
+  margin: "0 auto",
+  maxWidth: "37.5rem",
+};
+
+const h1 = {
+  color: "#333",
+  fontFamily:
+    "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif",
+  fontSize: "24px",
+  fontWeight: "bold",
+  margin: "40px 0",
+  padding: "0",
+};
+
+const link = {
+  color: "#2754C5",
+  fontFamily:
+    "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif",
+  fontSize: "14px",
+  textDecoration: "underline",
+};
+
+const text = {
+  color: "#333",
+  fontFamily:
+    "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif",
+  fontSize: "14px",
+  margin: "24px 0",
+};
+
+const span = {
+  color: "#031d4080",
+  margin: "0",
+};
+
+const footer = {
+  color: "#898989",
+  fontFamily:
+    "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif",
+  fontSize: "12px",
+  lineHeight: "22px",
+  marginTop: "12px",
+  marginBottom: "24px",
+};
+
+const code = {
+  display: "inline-block",
+  padding: "16px 4.5%",
+  width: "90.5%",
+  backgroundColor: "#f4f4f4",
+  borderRadius: "5px",
+  border: "1px solid #eee",
+  color: "#333",
+};
+
+// import * as React from "react";
+// import { Html, Button } from "@react-email/components";
+
+// export function Email(props) {
+//   const { url } = props;
+
+//   return (
+//     <Html lang="en">
+//       <Button href={url}>Click me</Button>
+//     </Html>
+//   );
+// }
+
+// export default Email;
